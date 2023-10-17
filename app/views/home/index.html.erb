@@ -1,0 +1,96 @@
+<div class="fw-bold p-3">
+  <div class="d-flex align-items-center my-3">
+    <%= link_to 'Profile', profile_path(@current_step), class: 'btn btn-primary me-2' %>
+    <%= link_to "Sign Out", destroy_user_session_path, class: "btn btn-primary me-2" %>
+  </div>
+  <div class="me-2">Signed in as <%= current_user.email %></div>
+  <hr>
+  <% if current_user.profile.present? %>
+    <div class="my-3">General Information</div>
+    <table class="table table-light table-striped my-3">
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Date of Birth</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Postal Code</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% attributes = [:first_name, :last_name, :age, :date_of_birth, :phone_number, :email, :postal_code, :city, :country] %>
+          <% attributes.each do |attr| %>
+            <td><%= @profile.public_send(attr).present? ? @profile.public_send(attr) : "N/A" %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <div class="my-3">Social Information</div>
+    <table class="table table-light table-striped my-3">
+      <thead>
+      <tr>
+        <th>Facebook Profile</th>
+        <th>Twitter Profile</th>
+        <th>LinkedIn Profile</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <% attributes = [:facebook_profile, :twitter_profile, :linkedin_profile] %>
+        <% attributes.each do |attr| %>
+          <td><%= @profile.public_send(attr).present? ? @profile.public_send(attr) : "N/A" %></td>
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+    <div class="my-3">Educational Information</div>
+    <table class="table table-light table-striped my-3">
+      <thead>
+      <tr>
+        <th>University</th>
+        <th>Level of Education</th>
+        <th>CGPA</th>
+        <th>Transcript</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <% attributes = [:university, :level_of_education, :cgpa, :transcript] %>
+        <% attributes.each do |attr| %>
+          <td><%= @profile.public_send(attr).present? ? @profile.public_send(attr) : "N/A" %></td>
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+    <div class="my-3">Professional Information</div>
+    <table class="table table-light table-striped my-3">
+      <thead>
+      <tr>
+        <th>Job Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>CV</th>
+        <th>Resume</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <% attributes = [:job_title, :company, :location, :start_date, :end_date, :cv, :resume] %>
+        <% attributes.each do |attr| %>
+          <td><%= @profile.public_send(attr).present? ? @profile.public_send(attr) : "N/A" %></td>
+        <% end %>
+      </tr>
+      </tbody>
+    </table>
+  <% end %>
+</div>

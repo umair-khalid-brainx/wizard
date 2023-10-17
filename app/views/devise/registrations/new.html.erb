@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center my-5">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'w-25'}) do |f| %>
+    <div class="h3 text-center">Sign Up</div>
+
+    <div class="field my-3">
+      <%= f.label :email, class: "form-label my-1" %><br />
+      <%= f.email_field :email, class: "form-control my-1" %>
+      <% f.object.errors.full_messages_for(:email).each do |message| %>
+        <small class="text-danger"><%= message %></small>
+      <% end %>
+    </div>
+
+    <div class="field my-3">
+      <%= f.label :password, class: "form-label my-1" %><br />
+      <%= f.password_field :password, class: "form-control my-1" %>
+      <% f.object.errors.full_messages_for(:password).each do |message| %>
+        <small class="text-danger"><%= message %></small>
+      <% end %>
+    </div>
+
+    <div class="field my-3">
+      <%= f.label :password_confirmation, class: "form-label my-1" %><br />
+      <%= f.password_field :password_confirmation, class: "form-control my-1" %>
+      <% f.object.errors.full_messages_for(:password_confirmation).each do |message| %>
+        <small class="text-danger"><%= message %></small>
+      <% end %>
+    </div>
+
+    <div class="actions d-flex justify-content-between">
+      <%= f.submit "Sign Up", class: "btn btn-primary" %>
+      <%= link_to "Login", new_session_path(resource_name), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+

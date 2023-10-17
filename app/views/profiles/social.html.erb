@@ -1,0 +1,38 @@
+<h3 class="text-center mt-4">Social Information</h3>
+
+<div class="d-flex flex-row justify-content-center my-4">
+  <%= form_for @profile, url: wizard_path, method: :put, html: {class: 'w-50'} do |f| %>
+    <div class="bar-container my-2">
+      <div class="bar bg-primary" style="width: <%= @progress.to_i %>%;"></div>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :facebook_profile, class: "form-label" %>
+      <%= f.text_field :facebook_profile, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:facebook_profile)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :twitter_profile, class: "form-label" %>
+      <%= f.text_field :twitter_profile, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:twitter_profile)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :linkedin_profile, class: "form-label" %>
+      <%= f.text_field :linkedin_profile, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:linkedin_profile)&.first %>
+      </small>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <%= f.submit 'Next', name: "next", class: "btn btn-primary mt-2" %>
+      <%= link_to 'Back', previous_wizard_path, class: "btn btn-primary mt-2" %>
+    </div>
+  <% end %>
+</div>
