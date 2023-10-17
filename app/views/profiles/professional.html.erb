@@ -1,0 +1,78 @@
+<h3 class="text-center mt-4">Professional Information</h3>
+
+<div class="d-flex flex-row justify-content-center my-4">
+  <%= form_for @profile, url: wizard_path, method: :put, html: {class: 'w-50', multipart: true } do |f| %>
+    <div class="bar-container my-2">
+      <div class="bar bg-primary" style="width: <%= @progress.to_i %>%;"></div>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :job_title, class: "form-label" %>
+      <%= f.text_field :job_title, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:job_title)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :company, class: "form-label" %>
+      <%= f.text_field :company, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:company)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :location, class: "form-label" %>
+      <%= f.text_field :location, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:location)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :start_date, class: "form-label" %>
+      <%= f.date_field :start_date, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:start_date)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :end_date, class: "form-label" %>
+      <%= f.date_field :end_date, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:end_date)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :cv, class: "form-label" %>
+      <div data-controller="dropzone" class="dropzone dz-clickable" data-file-type="cv">
+        <div class="dz-default dz-message">
+          <span>Drop your file here or click to upload</span>
+        </div>
+      </div>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:cv)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :resume, class: "form-label" %>
+      <div data-controller="dropzone" class="dropzone dz-clickable" data-file-type="resume">
+        <div class="dz-default dz-message">
+          <span>Drop your file here or click to upload</span>
+        </div>
+      </div>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:resume)&.first %>
+      </small>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <%= f.submit 'Submit', name: "next", class: "btn btn-primary mt-2" %>
+      <%= link_to 'Back', previous_wizard_path, class: "btn btn-primary mt-2" %>
+    </div>
+  <% end %>
+</div>

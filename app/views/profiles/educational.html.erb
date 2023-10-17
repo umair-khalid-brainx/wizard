@@ -1,0 +1,50 @@
+<h3 class="text-center mt-4">Educational Information</h3>
+
+<div class="d-flex flex-row justify-content-center my-4">
+  <%= form_for @profile, url: wizard_path, method: :put, html: {class: 'w-50', multipart: true} do |f| %>
+    <div class="bar-container my-2">
+      <div class="bar bg-primary" style="width: <%= @progress.to_i %>%;"></div>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :university, class: "form-label" %>
+      <%= f.text_field :university, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:university)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :level_of_education, class: "form-label" %>
+      <%= f.text_field :level_of_education, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:level_of_education)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label "CGPA (Optional)", class: "form-label" %>
+      <%= f.text_field :cgpa, class: "form-control" %>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:cgpa)&.first %>
+      </small>
+    </div>
+
+    <div class="field my-1">
+      <%= f.label :transcript, class: "form-label" %>
+      <div data-controller="dropzone" class="dropzone dz-clickable" data-file-type="transcript">
+        <div class="dz-default dz-message">
+          <span>Drop your file here or click to upload</span>
+        </div>
+      </div>
+      <small class="text-danger">
+        <%= f.object.errors.full_messages_for(:transcript)&.first %>
+      </small>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <%= f.submit 'Next', name: "next", class: "btn btn-primary mt-2" %>
+      <%= link_to 'Back', previous_wizard_path, class: "btn btn-primary mt-2" %>
+    </div>
+  <% end %>
+</div>
