@@ -1,4 +1,4 @@
-// app/javascript/controllers/dropzone_controller.js
+// // app/javascript/controllers/dropzone_controller.js
 import { Controller } from "@hotwired/stimulus"
 import Dropzone from "dropzone";
 

@@ -6,6 +6,8 @@ ruby "3.2.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 
+gem "sprockets-rails"
+
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 
@@ -66,3 +68,8 @@ end
 
 gem "devise"
 gem "wicked"
+gem "font-awesome-sass", "~> 6.5.1"
+
+gem "importmap-rails", "~> 2.0"
+
+gem "cable_ready", "~> 5.0"

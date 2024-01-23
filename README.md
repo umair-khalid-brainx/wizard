@@ -1,24 +1,61 @@
-# README
+# Example Rails 7 Project with Wizard Gem
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an example project built with Ruby on Rails 7, showcasing how the `wizard` gem can be utilized to facilitate step-by-step registration.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+- Ruby 3.2
+- Rails 7.0
+- Database supported by Rails
 
-* System dependencies
+## Installation
 
-* Configuration
+1. Clone the repository:
 
-* Database creation
+```bash
+  git clone https://github.com/your-username/wizard-project.git
+  cd wizard-project
+```
 
-* Database initialization
+2. Install dependencies and configure database
 
-* How to run the test suite
+```bash
+bundle install
+yarn
+rails db:create db:migrate db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Using the Wizard Gem
 
-* Deployment instructions
+This project uses the `wizard` gem to simplify step-by-step registration. Follow the steps below to utilize this functionality:
 
-* ...
+1. Run the Rails server:
+
+```bash
+rails server
+```
+
+2. Open your browser and go to http://localhost:3000.
+
+3. Follow the steps in the wizard to complete the step-by-step registration.
+
+## Contributions
+
+Feel free to contribute improvements to this project. Follow the steps below:
+
+1. Fork the repository
+2. Create a branch for your changes and commit:
+
+```bash
+git checkout -b feature/new-feature
+git add .
+git commit -m "Add new feature"
+```
+
+3. Push changes to your fork:
+
+```bash
+git push origin feature/new-feature
+```
+
+4. Open a pull request
